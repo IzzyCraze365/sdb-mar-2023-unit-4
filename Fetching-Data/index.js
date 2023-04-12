@@ -1,6 +1,6 @@
 // Unit 4 - Day 017
 // Fetching Data
-//API example
+// API example
 
 //Hover mouse over json and you will see "Promise" this denotes Async function, and you need an await.
 
@@ -44,7 +44,7 @@ async function fetchPokemon() {
 }
 
 
-fetchPokemon();
+//fetchPokemon();
 /* 
 The response that we get back from the API in this example is a JSON Object.
 
@@ -60,4 +60,27 @@ function displayPokemon(charactersToDisplay) {
     pTag.textContent = character.name;
     pokemonDisplay.appendChild(pTag);
   });
+}
+
+async function fetchPokemonImage() {
+  let url = "https://pokeapi.co/api/v2/pokemon/bulbasaur";
+
+  try {
+    let response = await fetch(url);
+    let data = await response.json();
+
+    console.log(data.sprites.front_default); // In the console, you can click the link to go to the source
+    displayPokemonImage(data.sprites.front_default);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchPokemonImage();
+
+function displayPokemonImage(imgURL) {
+  let pokemonDisplay = document.getElementById("display-pokemon");
+  let imgTag = document.createElement("img");
+  imgTag.src = imgURL;
+  pokemonDisplay.appendChild(imgTag);
 }
