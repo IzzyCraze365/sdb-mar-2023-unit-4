@@ -377,14 +377,14 @@ function populateCategory(
 ) {
   debugger;
   // Fish for Title
-  let elementTitle = document.getElementById(elementTitleId);
+  let elementTitle = document.getElementById("elementTitleId");
 
   //   Replacing Text of elementTitle with a title
   let title = categoryFilteredArray[0].category;
   elementTitle.textContent = title;
 
   // Fish for nature li's
-  let questions = document.querySelectorAll(elementQuestionClass);
+  let questions = document.querySelectorAll(".elementQuestionClass");
 
   //   Loop through the questions (use a .forEach) and change the textContent to the actual question from the filtered list
 
